@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES2022", //versao do JS
+    "module": "Node16", //utiliza o sistema de modulos do CommonJs
+    "moduleResolution": "Node16", //define como os modulos sao encontrados
+    "rootDir": "./src", // codigo fonte ficara em src
+    "outDir": "./dist", //arquivos compilados serao colocados em dist
+    "strict": true, //verificacoes rigorosas de tipos
+    "esModuleInterop": true, // facilita importacao de bibliotecas CommonJS
+    "skipLibCheck": true //evita verificacoes completas dos tipos internos das dependencias
+  },
+    "include": ["src"] //indica quais arquivos serao incluidos na compilacao
+}
