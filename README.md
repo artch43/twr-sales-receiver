@@ -96,18 +96,18 @@ Pensei no que acontece quando plataformas reais mandam notificações e tratei e
 
 ## O que eu decidi não fazer (e por quê)
 
-| Reembolsos, cancelamentos e ciclo de vida do pedido | O enunciado não define essas regras; hoje cada evento `paid` é independente | Ligar os eventos pelo `orderId` e tratar estornos |
-| Eventos fora de ordem | Depende do item acima | Guardar o histórico de eventos e recalcular o estado do pedido |
-Proteger o GET /reports/sales. Deixei aberto para facilitar a avaliação. Em produção ele exigiria autenticação.
-| Limite de requisições (rate limit) | Fora do escopo do tempo estimado | Limitar por IP/token |
-| Paginação por cursor, filtro por período, várias moedas | O `limit` já evita respostas gigantes | Evoluir o relatório |
-| Fila / processamento assíncrono | A gravação é rápida e síncrona | Usar fila se o volume crescer |
-| Teste de carga e de concorrência | Confio na atomicidade do banco, mas não medi | Testar com várias requisições simultâneas |
-| Banco persistente no deploy, migrações e CI | Prazo e plano gratuito | Disco persistente ou Postgres, migrações e testes automáticos no GitHub |
+- Reembolsos, cancelamentos e ciclo de vida do pedido
+  - O enunciado não define essas regras; hoje cada evento `paid` é independente
+  - Ligar os eventos pelo `orderId` e tratar estornos
+- Eventos fora de ordem
+  - Depende do item acima
+  - Guardar o histórico de eventos e recalcular o estado do pedido
+- Proteger o GET /reports/sales. Deixei aberto para facilitar a avaliação. Em produção ele exigiria autenticação.
+- Limite de requisições (rate limit)
+  - Fora do escopo do tempo estimado
+  - Limitar por IP/token
+- Paginação por cursor, filtro por período, várias moedas
 
-## Limitação do deploy
-
-O deploy está no plano gratuito da Render, que usa disco temporário: o arquivo SQLite pode ser apagado quando o serviço reinicia, é atualizado ou fica ocioso. Localmente os dados persistem (tem teste para isso). Em produção eu usaria disco persistente ou um Postgres gerenciado.
 
 ## Rodando localmente
 
