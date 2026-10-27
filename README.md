@@ -7,12 +7,12 @@ API em TypeScript que recebe webhooks de vendas de plataformas de checkout (`POS
 
 ## Como chamar
 
-**POST** (registrar uma venda). O header `x-webhook-token` é obrigatório. Token de demonstração: `<5ac08e5820fe4f7181baff9bd91fd29d>`
+**POST** (registrar uma venda). O header `x-webhook-token` é obrigatório. Token de demonstração: `5ac08e5820fe4f7181baff9bd91fd29d`
 
 ```bash
 curl -i -X POST https://twr-sales-receiver.onrender.com/webhooks/sales \
   -H "Content-Type: application/json" \
-  -H "x-webhook-token: <TOKEN_DE_DEMONSTRAÇÃO>" \
+  -H "x-webhook-token: 5ac08e5820fe4f7181baff9bd91fd29d" \
   -d '{
     "eventId": "evt_001",
     "orderId": "ord_123",
